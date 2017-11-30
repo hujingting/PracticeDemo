@@ -9,13 +9,39 @@
     tools:context="com.tutao.practicedemo.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="344dp"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="8dp">
+
+        <FrameLayout
+            android:layout_width="60dp"
+            android:layout_height="60dp">
+
+            <ImageView
+                android:id="@+id/iv_like"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                android:src="@mipmap/ic_comment_like"/>
+            <ImageView
+                android:id="@+id/iv_shining"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="6dp"
+                android:visibility="gone"
+                android:src="@mipmap/ic_messages_like_selected_shining"/>
+        </FrameLayout>
+
+        <com.tutao.practicedemo.UpDownTextView
+            android:id="@+id/up_down_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </com.tutao.practicedemo.UpDownTextView>
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

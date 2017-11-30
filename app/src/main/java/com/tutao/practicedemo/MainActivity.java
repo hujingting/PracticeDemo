@@ -9,12 +9,19 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.CycleInterpolator;
+import android.widget.ImageView;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+import java.util.ArrayList;
+
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+
+    private int type = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +47,57 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        fun();
+    }
+
+    public void fun() {
+        final UpDownTextView textView = (UpDownTextView) findViewById(R.id.up_down_text_view);
+        final ArrayList<String> titleList = new ArrayList<String>();
+        textView.setTextSize(20);
+        textView.setGravity(Gravity.CENTER);
+        for (int i = 0; i < 10; i++) {
+            titleList.add(i + "");
+        }
+        textView.setTextList(titleList);
+        final ImageView ivShining = (ImageView) findViewById(R.id.iv_shining);
+        final ImageView ivLike = (ImageView) findViewById(R.id.iv_like);
+        ivLike.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                textView.startAutoScroll();
+                if (type == 1) {
+                    ivShining.setVisibility(View.GONE);
+                    ivLike.setImageResource(R.mipmap.ic_comment_like);
+                }
+
+                ivLike.animate()
+                        .scaleX(0.5f)
+                        .scaleY(0.5f)
+                        .setDuration(300)
+                        .setInterpolator(new CycleInterpolator(0.5f))
+                        .withEndAction(new Runnable() {
+                            @Override
+                            public void run() {
+                                ivLike.postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        ivLike.setScaleX(1);
+                                        ivLike.setScaleY(1);
+                                        if (type == 0) {
+                                            type = 1;
+                                            ivLike.setImageResource(R.mipmap.ic_messages_like_selected);
+                                            ivShining.setVisibility(View.VISIBLE);
+                                        } else {
+                                            type = 0;
+                                        }
+                                    }
+                                }, 150);
+                            }
+                        });
+            }
+        });
+
     }
 
     @Override
