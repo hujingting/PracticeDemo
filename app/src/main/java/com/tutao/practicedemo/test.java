@@ -5,4 +5,7 @@ package com.tutao.practicedemo;
  */
 
 public class test {
+    public test() {
+        
+    }
 }
