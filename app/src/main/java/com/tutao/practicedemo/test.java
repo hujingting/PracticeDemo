@@ -10,8 +10,7 @@ import android.view.View;
  */
 
 public class test extends View{
-
-
+    
     public test(Context context) {
         super(context);
     }
