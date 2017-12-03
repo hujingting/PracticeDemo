@@ -17,7 +17,7 @@ public class test extends ViewGroup{
 
     public test(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init();
+//        init();
     }
 
     public test(Context context, AttributeSet attrs, int defStyleAttr) {
