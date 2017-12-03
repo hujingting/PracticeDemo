@@ -8,8 +8,7 @@ import android.view.ViewGroup;
  * Created by jingting on 2017/11/30.
  */
 
-public class test extends ViewGroup{
-
+public class test extends ViewGroup {
 
     public test(Context context) {
         super(context);
