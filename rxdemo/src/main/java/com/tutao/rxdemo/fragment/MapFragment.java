@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 
 import com.tutao.rxdemo.R;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -21,17 +21,17 @@ import butterknife.OnClick;
 
 public class MapFragment extends BaseFragment {
 
-    @Bind(R.id.rb1)
+    @BindView(R.id.rb1)
     AppCompatRadioButton mRb1;
-    @Bind(R.id.rb2)
+    @BindView(R.id.rb2)
     AppCompatRadioButton mRb2;
-    @Bind(R.id.rb3)
+    @BindView(R.id.rb3)
     AppCompatRadioButton mRb3;
-    @Bind(R.id.rb4)
+    @BindView(R.id.rb4)
     AppCompatRadioButton mRb4;
-    @Bind(R.id.recycler_view)
+    @BindView(R.id.recycler_view)
     RecyclerView mRecyclerView;
-    @Bind(R.id.swipe_refresh_layout)
+    @BindView(R.id.swipe_refresh_layout)
     SwipeRefreshLayout mSwipeRefreshLayout;
 
     public static MapFragment newInstance() {
@@ -54,7 +54,6 @@ public class MapFragment extends BaseFragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        ButterKnife.unbind(this);
     }
 
     @OnClick(R.id.rb1)
