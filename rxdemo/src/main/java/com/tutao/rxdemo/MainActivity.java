@@ -1,9 +1,9 @@
 package com.tutao.rxdemo;
 
-import android.app.Fragment;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
-import android.support.v13.app.FragmentPagerAdapter;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
@@ -14,15 +14,15 @@ import com.tutao.rxdemo.fragment.ZipFragment;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
 
 
-    @Bind(android.R.id.tabs)
+    @BindView(android.R.id.tabs)
     TabLayout mTabs;
-    @Bind(R.id.view_pager)
+    @BindView(R.id.view_pager)
     ViewPager mViewPager;
 
     String[] tabString = {"基本", "转换", "压合"};
@@ -37,8 +37,8 @@ public class MainActivity extends AppCompatActivity {
         fragments.add(ElementaryFragment.newInstance());
         fragments.add(MapFragment.newInstance());
         fragments.add(ZipFragment.newInstance());
-
-        mViewPager.setAdapter(new FragmentPagerAdapter(getFragmentManager()) {
+        
+        mViewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
             @Override
             public Fragment getItem(int position) {
                 return fragments.get(position);
@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
             public int getCount() {
                 return tabString.length;
             }
+
 
             @Override
             public CharSequence getPageTitle(int position) {

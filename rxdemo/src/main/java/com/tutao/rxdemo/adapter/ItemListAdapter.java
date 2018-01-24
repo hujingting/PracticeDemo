@@ -15,7 +15,7 @@ import com.tutao.rxdemo.model.Item;
 
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class ItemListAdapter extends RecyclerView.Adapter {
@@ -46,9 +46,9 @@ public class ItemListAdapter extends RecyclerView.Adapter {
     }
 
     static class DebounceViewHolder extends RecyclerView.ViewHolder {
-        @Bind(R.id.imageIv)
+        @BindView(R.id.imageIv)
         ImageView imageIv;
-        @Bind(R.id.descriptionTv)
+        @BindView(R.id.descriptionTv)
         TextView descriptionTv;
         public DebounceViewHolder(View itemView) {
             super(itemView);
