@@ -1,4 +1,4 @@
-package com.tutao.common;
+package com.tutao.common.utils;
 
 import android.graphics.Bitmap;
 

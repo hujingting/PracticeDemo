@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.tutao.practicedemo.MainActivity"
-    tools:showIn="@layout/app_bar_main">
+    android:orientation="vertical"
+    tools:context=".MainActivity">
 
     <LinearLayout
-        android:layout_width="344dp"
+        android:id="@+id/ll_like_anim"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        tools:layout_editor_absoluteY="0dp"
-        tools:layout_editor_absoluteX="8dp">
+        android:orientation="vertical">
 
         <FrameLayout
             android:layout_width="60dp"
@@ -26,22 +24,59 @@
                 android:layout_height="25dp"
                 android:layout_gravity="center"
                 android:src="@mipmap/ic_comment_like"/>
+
             <ImageView
                 android:id="@+id/iv_shining"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="6dp"
-                android:visibility="gone"
-                android:src="@mipmap/ic_messages_like_selected_shining"/>
+                android:src="@mipmap/ic_messages_like_selected_shining"
+                android:visibility="gone"/>
         </FrameLayout>
 
         <com.tutao.practicedemo.UpDownTextView
             android:id="@+id/up_down_text_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
         </com.tutao.practicedemo.UpDownTextView>
+
+
+        <com.tutao.practicedemo.ThumbUpView
+            android:id="@+id/thumbUpView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:padding="10dp"
+            app:tuv_count="109"/>
+
+        <EditText
+            android:id="@+id/ed_num"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="请输入数字"
+            android:inputType="number"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="setNum"
+            android:text="设置"/>
     </LinearLayout>
 
-</android.support.constraint.ConstraintLayout>
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:clipChildren="false"-->
+    <!--android:orientation="vertical">-->
+    <!---->
+    <!--<com.tutao.practicedemo.ThumbUpView-->
+    <!--android:id="@+id/thumbUpView"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_gravity="center_horizontal"-->
+    <!--android:padding="10dp"-->
+    <!--app:tuv_count="109"/>-->
+
+</LinearLayout>

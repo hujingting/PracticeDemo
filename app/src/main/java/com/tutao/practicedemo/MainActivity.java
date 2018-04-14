@@ -9,19 +9,23 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.CycleInterpolator;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-
     private int type = 0;
+    private EditText edNum;
+    private ThumbUpView mThumbUpView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +53,31 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
 
         fun();
+
+        mThumbUpView = findViewById(R.id.thumbUpView);
+        edNum = findViewById(R.id.ed_num);
+
+        mThumbUpView.setThumbUpClickListener(new ThumbView.ThumbUpClickListener() {
+            @Override
+            public void thumbUpFinish() {
+                Log.d("MainActivity", "Old点赞成功");
+            }
+
+            @Override
+            public void thumbDownFinish() {
+                Log.d("MainActivity", "Old点赞取消");
+            }
+        });
+    }
+
+    public void setNum(View view) {
+        try {
+            int num = Integer.valueOf(edNum.getText().toString().trim());
+            mThumbUpView.setCount(num).setThumbUp(false);
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(this, "只能输入整数", Toast.LENGTH_LONG).show();
+        }
     }
 
     public void fun() {
@@ -69,7 +98,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 if (type == 1) {
                     ivShining.setVisibility(View.GONE);
                     ivLike.setImageResource(R.mipmap.ic_comment_like);
+                } else {
+                    ivLike.setImageResource(R.mipmap.ic_messages_like_selected);
                 }
+
 
                 ivLike.animate()
                         .scaleX(0.5f)
@@ -86,7 +118,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                                         ivLike.setScaleY(1);
                                         if (type == 0) {
                                             type = 1;
-                                            ivLike.setImageResource(R.mipmap.ic_messages_like_selected);
+//                                            ivLike.setImageResource(R.mipmap.ic_messages_like_selected);
                                             ivShining.setVisibility(View.VISIBLE);
                                         } else {
                                             type = 0;

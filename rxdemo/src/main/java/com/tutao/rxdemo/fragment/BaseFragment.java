@@ -22,6 +22,4 @@ public class BaseFragment extends Fragment {
             mSubscription.unsubscribe();
         }
     }
-
-
 }
