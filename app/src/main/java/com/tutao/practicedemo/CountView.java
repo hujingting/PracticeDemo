@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 /**
@@ -157,9 +158,13 @@ public class CountView extends View {
             char oldC = oldNum.charAt(i);
             char newC = newNum.charAt(i);
             if (oldC != newC) {
+                //不变的部分
                 mTexts[0] = i == 0 ? "" : newNum.substring(0, i);
+                //原来的部分
                 mTexts[1] = oldNum.substring(i);
+                //变化后的部分
                 mTexts[2] = newNum.substring(i);
+                Log.d("TAG", "不变的部分" + mTexts[0] + "原来的部分" + mTexts[1] + "变化后的部分" + mTexts[2]);
                 break;
             }
         }
