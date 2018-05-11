@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
       <module fileurl="file://$PROJECT_DIR$/coolweather/coolweather.iml" filepath="$PROJECT_DIR$/coolweather/coolweather.iml" />
       <module fileurl="file://$PROJECT_DIR$/rotate/rotate.iml" filepath="$PROJECT_DIR$/rotate/rotate.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ruler/ruler.iml" filepath="$PROJECT_DIR$/ruler/ruler.iml" />
       <module fileurl="file://$PROJECT_DIR$/rxdemo/rxdemo.iml" filepath="$PROJECT_DIR$/rxdemo/rxdemo.iml" />
     </modules>
   </component>

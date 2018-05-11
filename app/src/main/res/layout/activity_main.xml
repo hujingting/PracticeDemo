@@ -30,7 +30,6 @@
             android:visibility="gone"/>
     </FrameLayout>
 
-
     <com.tutao.practicedemo.ThumbUpView
         android:id="@+id/thumbUpView"
         android:layout_width="match_parent"
