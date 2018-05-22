@@ -14,46 +14,53 @@ import android.widget.OverScroller;
 
 public class InnerRuler extends View{
 
-    private Context context;
+    private final String TAG = "ruler";
+    private Context mContext;
     //画笔
-    private Paint smallScalePaint, bigScalePaint, textPaint;
+    private Paint mSmallScalePaint, mBigScalePaint, mTextPaint;
     //当前刻度值
-    private float currentScale = 0;
+    private float mCurrentScale = 0;
     //最大刻度数
-    private int maxLength = 0;
-    //长度，最小可滑动值, 最大可滑动值
-    private int length, minPositionX = 0, maxPositionX = 0;
+    private int mMaxLength = 0;
+    //长度、最小可滑动值、最大可滑动值
+    private int mLength, mMinPositionX = 0, mMaxPositionX = 0;
     //控制滑动
-    private OverScroller overScroller;
+    private OverScroller mOverScroller;
     //记录落点
-    private float lastX = 0;
+    private float mLastX = 0;
+    //拖动阈值,这里没有使用它，用了感觉体验不好
+    private int mTouchSlop;
     //惯性最大最小速度
-    private int maximumVelocity, minimumVelocity;
+    private int mMaximumVelocity, mMinimumVelocity;
     //速度获取
-    private VelocityTracker velocityTracker;
+    private VelocityTracker mVelocityTracker;
     //一半宽度
-    private int halfWidth = 0;
-    //一个大刻度10格小刻度
-    private int count = 10;
+    private int mHalfWidth = 0;
+    //回调接口
+//    private RulerCallback mRulerCallback;
+    //一格大刻度多少格小刻度
+    private int mCount = 10;
     //提前刻画量
+    private int mDrawOffset = 0;
 
+    private ShellRuler mParent;
 
     public InnerRuler(Context context) {
-        super(context);
-        init(context);
+        this(context, null);
     }
 
     public InnerRuler(Context context, @Nullable AttributeSet attrs) {
-        super(context, attrs);
+        this(context, attrs, 0);
     }
 
     public InnerRuler(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        init(context);
     }
 
 
     private void init(Context context) {
-        this.context = context;
+        this.mContext = context;
 
 //        maxLength =
     }
