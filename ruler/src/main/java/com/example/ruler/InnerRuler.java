@@ -1,6 +1,7 @@
 package com.example.ruler;
 
 import android.content.Context;
+import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.os.Build;
 import android.support.annotation.Nullable;
@@ -45,6 +46,8 @@ public class InnerRuler extends View{
     private int mCount = 10;
     //提前刻画量
     private int mDrawOffset = 0;
+    //回调接口
+    private RulerCallback mRulerCallback;
 
     private ShellRuler mParent;
 
@@ -87,6 +90,14 @@ public class InnerRuler extends View{
                 goToScale(mCurrentScale);
             }
         });
+        checkAPILevel();
+    }
+
+    //API小于18则关闭硬件加速，否则setAntiAlias()方法不生效
+    private void checkAPILevel() {
+        if (Build.VERSION.SDK_INT < 18) {
+            setLayerType(LAYER_TYPE_NONE, null);
+        }
     }
 
     private void goToScale(float scale) {
@@ -139,6 +150,31 @@ public class InnerRuler extends View{
         mMaxPositionX = mLength - mHalfWidth;
     }
 
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        drawScale(canvas);
+    }
+
+    private void drawScale(Canvas canvas) {
+        for (float i = mParent.getmMinScale(); i <= mParent.getmMaxScale(); i++) {
+            float locationX = (i - mParent.getmMinScale() * mParent.getmInterval());
+
+            if (locationX > getScrollX() - mDrawOffset && locationX < (getScaleX() + canvas.getWidth() + mDrawOffset)) {
+                if (i % mCount == 0) {
+                    canvas.drawLine(locationX, 0, locationX, mParent.getmBigScaleLength(), mBigScalePaint);
+                    canvas.drawText(String.valueOf(i / 10), locationX, mParent.getmTextMarginTop(), mTextPaint);
+                } else {
+                    canvas.drawLine(locationX, 0, locationX, mParent.getmSmallScaleLength(), mSmallScalePaint);
+                }
+            }
+        }
+    }
+
+    public void setRulerCallback(RulerCallback RulerCallback) {
+        this.mRulerCallback = RulerCallback;
+    }
+
     private void initPaints() {
         mSmallScalePaint = new Paint();
         mSmallScalePaint.setStrokeWidth(mParent.getmSmallScaleWidth());
@@ -155,11 +191,4 @@ public class InnerRuler extends View{
         mTextPaint.setTextSize(mParent.getmTextSize());
         mTextPaint.setTextAlign(Paint.Align.CENTER);
     }
-
-    //API小于18则关闭硬件加速，否则setAntiAlias()方法不生效
-    private void checkAPILevel() {
-        if (Build.VERSION.SDK_INT < 18) {
-            setLayerType(LAYER_TYPE_NONE, null);
-        }
-     }
 }

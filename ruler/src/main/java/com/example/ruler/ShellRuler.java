@@ -141,6 +141,11 @@ public class ShellRuler extends ViewGroup {
         initDrawable();
     }
 
+    //设置回调
+    public void setCallback(RulerCallback rulerCallback) {
+        mInnerRuler.setRulerCallback(rulerCallback);
+    }
+
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
