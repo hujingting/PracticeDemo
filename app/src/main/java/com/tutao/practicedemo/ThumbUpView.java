@@ -63,7 +63,7 @@ public class ThumbUpView extends LinearLayout implements View.OnClickListener{
     }
 
     public ThumbUpView setCount(int count) {
-        this.mCount = mCount;
+        this.mCount = count;
         mCountView.setCount(mCount);
         return this;
     }
@@ -108,7 +108,6 @@ public class ThumbUpView extends LinearLayout implements View.OnClickListener{
         this.mNeedChangeChildView = needChange;
         setPadding(left, top, right, bottom);
     }
-
 
     private void resetCountViewParams() {
         LayoutParams params = (LayoutParams) mCountView.getLayoutParams();

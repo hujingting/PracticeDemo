@@ -194,6 +194,9 @@ public class ThumbView extends View {
                 canvas.restore();
                 canvas.drawCircle(mCirclePoint.x, mCirclePoint.y, mRadius, mCirclePaint);
             }
+            canvas.drawBitmap(mThumbUp, mThumbPoint.x, mThumbPoint.y, mBitmapPaint);
+        } else {
+            canvas.drawBitmap(mThumbNormal, mThumbPoint.x, mThumbPoint.y, mBitmapPaint);
         }
     }
 
