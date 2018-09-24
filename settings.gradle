@@ -1,1 +1,1 @@
-include ':app', ':common', ':coolweather', ':rxdemo', ':rotate'
+include ':app', ':common', ':coolweather', ':rxdemo', ':rotate', ':scaleinviewpager'

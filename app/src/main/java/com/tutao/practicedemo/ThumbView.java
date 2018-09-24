@@ -73,6 +73,7 @@ public class ThumbView extends View {
     }
 
     public ThumbView(Context context, @Nullable AttributeSet attrs) {
+
         this(context, attrs,0);
     }
 
