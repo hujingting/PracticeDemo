@@ -28,6 +28,7 @@
             android:layout_marginTop="6dp"
             android:src="@mipmap/ic_messages_like_selected_shining"
             android:visibility="gone"/>
+
     </FrameLayout>
 
     <com.tutao.practicedemo.ThumbUpView
