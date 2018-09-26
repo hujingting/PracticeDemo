@@ -12,6 +12,9 @@ import com.sweet.yicheng.scaleinviewpager.transformer.ScaleInTransformer;
 import com.tutao.common.utils.CircleImageView;
 import com.tutao.common.utils.ImageUtils;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -23,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
 //    @BindView(R.id.view_pager)
     ViewPager mViewPager;
     int[] bannerRes = new int[] {R.drawable.banner1, R.drawable.banner2, R.drawable.banner3};
+    List<View> views;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,11 +35,31 @@ public class MainActivity extends AppCompatActivity {
 
 //        ButterKnife.bind(this);
         mViewPager = findViewById(R.id.view_pager);
+        mViewPager.setPageMargin(30);
+
+        initViews();
 
         MyAdapter myAdapter = new MyAdapter(this);
 
         mViewPager.setPageTransformer(false, new ScaleInTransformer());
         mViewPager.setAdapter(myAdapter);
+
+        mViewPager.setCurrentItem(bannerRes.length / 2);
+    }
+
+    private void initViews() {
+        views = new ArrayList<>();
+        CircleImageView leftView = new CircleImageView(this);
+//        leftView.setTag("leftView");
+        views.add(leftView);
+
+        CircleImageView middleView = new CircleImageView(this);
+//        middleView.setTag("middleView");
+        views.add(middleView);
+
+        CircleImageView rightView = new CircleImageView(this);
+//        middleView.setTag("rightView");
+        views.add(rightView);
     }
 
 
@@ -47,10 +71,9 @@ public class MainActivity extends AppCompatActivity {
             this.context = context;
         }
 
-
         @Override
         public int getCount() {
-            return bannerRes.length;
+            return views.size();
         }
 
         @Override
@@ -61,12 +84,12 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public Object instantiateItem(ViewGroup container, int position) {
 
-            CircleImageView circleImageView = new CircleImageView(context);
-            circleImageView.setRound(10, 10);
-            ImageUtils.loadLocalImage(context, bannerRes[position], circleImageView);
-            container.addView(circleImageView);
+            CircleImageView imageView = (CircleImageView) views.get(position);
+            imageView.setRound(10, 10);
+            ImageUtils.loadLocalImage(context, bannerRes[position], imageView);
+            container.addView(imageView);
 
-            return circleImageView;
+            return imageView;
         }
 
         @Override

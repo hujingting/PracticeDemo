@@ -16,7 +16,7 @@ public class ScaleInTransformer implements ViewPager.PageTransformer {
         int pageWith = view.getWidth();
         int pageHeight = view.getHeight();
 
-        Log.d("jt", position + "");
+        Log.d("jt_" + view.getId(), position + "");
         //设置锚点
         view.setPivotX(pageWith / 2);
         view.setPivotY(pageHeight / 2);
