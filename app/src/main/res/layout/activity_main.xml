@@ -1,27 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.DrawerLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:openDrawer="start">
+    android:orientation="vertical"
+    android:background="#eeeeee"
+    android:fitsSystemWindows="true">
 
-    <include
-        layout="@layout/app_bar_main"
+    <FrameLayout
+        android:layout_width="60dp"
+        android:layout_height="60dp">
+
+        <ImageView
+            android:id="@+id/iv_like"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center"
+            android:src="@mipmap/ic_comment_like"/>
+
+        <ImageView
+            android:id="@+id/iv_shining"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="6dp"
+            android:src="@mipmap/ic_messages_like_selected_shining"
+            android:visibility="gone"/>
+
+    </FrameLayout>
+
+    <com.tutao.practicedemo.ThumbUpView
+        android:id="@+id/thumbUpView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal"
+        android:padding="20dp"
+        app:tuv_count="109"/>
 
-    <android.support.design.widget.NavigationView
-        android:id="@+id/nav_view"
+
+    <EditText
+        android:id="@+id/ed_num"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:inputType="number"/>
+
+    <Button
+        android:id="@+id/btn_setting"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:fitsSystemWindows="true"
-        android:visibility="gone"
-        app:headerLayout="@layout/nav_header_main"
-        app:menu="@menu/activity_main_drawer"/>
+        android:layout_height="wrap_content"
+        android:onClick="setNum"
+        android:layout_gravity="center_horizontal"
+        android:text="设置" />
 
-</android.support.v4.widget.DrawerLayout>
+
+    <!--<Button-->
+        <!--android:id="@+id/btn_like"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:onClick="setNum"-->
+        <!--android:layout_gravity="center_horizontal"-->
+        <!--android:text="点赞" />-->
+
+    <!--<Button-->
+        <!--android:id="@+id/btn_setting"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:onClick="setNum"-->
+        <!--android:layout_gravity="center_horizontal"-->
+        <!--android:text="取消点赞" />-->
+
+</LinearLayout>

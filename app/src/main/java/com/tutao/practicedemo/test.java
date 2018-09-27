@@ -1,38 +1,38 @@
 package com.tutao.practicedemo;
 
 import android.content.Context;
-import android.graphics.Paint;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.view.View;
+import android.view.ViewGroup;
 
 /**
  * Created by jingting on 2017/11/30.
  */
 
-public class test extends View{
+public class test extends ViewGroup {
 
-    private Paint mPaint;
-
+    //哈哈哈哈哈st
+//    吼吼吼吼
+    //擦擦擦擦
     public test(Context context) {
         super(context);
     }
 
-    public test(Context context, @Nullable AttributeSet attrs) {
+    public test(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init();
+//        init();
     }
 
-    public test(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public test(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
+//        init();
     }
 
-    public test(Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
+    @Override
+    protected void onLayout(boolean b, int i, int i1, int i2, int i3) {
+
     }
 
     private void init() {
-        
+
     }
 }
