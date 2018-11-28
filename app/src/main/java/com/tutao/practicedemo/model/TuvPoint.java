@@ -1,4 +1,4 @@
-package com.tutao.practicedemo;
+package com.tutao.practicedemo.model;
 
 import android.graphics.Point;
 
@@ -7,10 +7,10 @@ import android.graphics.Point;
  */
 
 public class TuvPoint {
-    float x;
-    float y;
+    public float x;
+    public float y;
 
-    TuvPoint() {
+    public TuvPoint() {
 
     }
 

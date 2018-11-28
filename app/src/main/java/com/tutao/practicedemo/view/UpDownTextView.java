@@ -1,4 +1,4 @@
-package com.tutao.practicedemo;
+package com.tutao.practicedemo.view;
 
 import android.content.Context;
 import android.text.TextUtils;

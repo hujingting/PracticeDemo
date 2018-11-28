@@ -1,18 +1,8 @@
-package com.tutao.practicedemo;
+package com.tutao.practicedemo.activity;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Gravity;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.CycleInterpolator;
 import android.widget.Button;
@@ -20,11 +10,11 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
+import com.tutao.practicedemo.R;
+import com.tutao.practicedemo.view.ThumbUpView;
+import com.tutao.practicedemo.view.ThumbView;
 
-import butterknife.OnClick;
-
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends BaseActivity implements View.OnClickListener{
 
     private int type = 0;
     private EditText edNum;
@@ -41,6 +31,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mThumbUpView = findViewById(R.id.thumbUpView);
         edNum = findViewById(R.id.ed_num);
         btnSetting = findViewById(R.id.btn_setting);
+
+        Button btnJump = findViewById(R.id.btn_jump);
+        btnJump.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FaceRainActivity.start(MainActivity.this);
+            }
+        });
 
         mThumbUpView.setThumbUpClickListener(new ThumbView.ThumbUpClickListener() {
             @Override
