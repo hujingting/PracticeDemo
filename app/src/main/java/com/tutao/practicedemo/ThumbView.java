@@ -1,4 +1,4 @@
-package com.tutao.practicedemo.view;
+package com.tutao.practicedemo;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -18,10 +18,6 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.OvershootInterpolator;
-
-import com.tutao.practicedemo.R;
-import com.tutao.practicedemo.model.TuvPoint;
-import com.tutao.practicedemo.util.TuvUtils;
 
 /**
  * Created by jingting on 2018/3/29.

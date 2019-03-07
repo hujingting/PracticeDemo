@@ -1,4 +1,4 @@
-package com.tutao.practicedemo.view;
+package com.tutao.practicedemo;
 
 /**
  * Created by apple on 2018/4/16.

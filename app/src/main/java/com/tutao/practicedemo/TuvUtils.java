@@ -1,4 +1,4 @@
-package com.tutao.practicedemo.util;
+package com.tutao.practicedemo;
 
 import android.content.Context;
 import android.view.View;
