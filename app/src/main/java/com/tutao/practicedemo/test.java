@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 
 public class test extends ViewGroup {
 
-    //哈哈哈哈哈st
 //    吼吼吼吼吼
     //擦擦擦擦
     public test(Context context) {
