@@ -30,8 +30,5 @@ public class test extends ViewGroup {
     protected void onLayout(boolean b, int i, int i1, int i2, int i3) {
 
     }
-
-    private void init() {
-
-    }
+    
 }
