@@ -35,8 +35,4 @@ public class test extends ViewGroup {
     private void init() {
 
     }
-
-    private void initTest() {
-
-    }
 }
