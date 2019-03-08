@@ -62,6 +62,23 @@ public class ThumbUpView extends LinearLayout implements View.OnClickListener{
         setOnClickListener(this);
     }
 
+    private void addThumbView() {
+        mThumbView = new ThumbView(getContext());
+        mThumbView.setIsThumbUp(mlsThumbUp);
+        TuvPoint circlePoint = mThumbView.getCirclePoint();
+        mTopMargin = (int) (circlePoint.y - mTextSize / 2);
+        addView(mThumbView, getThumbParams());
+    }
+
+    private void addCountView() {
+        mCountView = new CountView(getContext());
+        mCountView.setTextColor(mTextColor);
+        mCountView.setTextSize(mTextSize);
+        mCountView.setCount(mCount);
+
+        addView(mCountView, getCountParams());
+    }
+
     public ThumbUpView setCount(int count) {
         this.mCount = count;
         mCountView.setCount(mCount);
@@ -130,23 +147,6 @@ public class ThumbUpView extends LinearLayout implements View.OnClickListener{
         params.topMargin += getPaddingTop();
         params.bottomMargin = getPaddingBottom();
         mThumbView.setLayoutParams(params);
-    }
-
-    private void addCountView() {
-        mCountView = new CountView(getContext());
-        mCountView.setTextColor(mTextColor);
-        mCountView.setTextSize(mTextSize);
-        mCountView.setCount(mCount);
-
-        addView(mCountView, getCountParams());
-    }
-
-    private void addThumbView() {
-        mThumbView = new ThumbView(getContext());
-        mThumbView.setIsThumbUp(mlsThumbUp);
-        TuvPoint circlePoint = mThumbView.getCirclePoint();
-        mTopMargin = (int) (circlePoint.y - mTextSize / 2);
-        addView(mThumbView, getThumbParams());
     }
 
     @Override

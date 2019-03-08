@@ -83,22 +83,6 @@ public class ThumbView extends View {
     }
 
     private void init() {
-        initBitmapInfo();
-
-        mCirclePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mCirclePaint.setStyle(Paint.Style.STROKE);
-        mCirclePaint.setStrokeWidth(TuvUtils.dip2px(getContext(), 2));
-
-        mCirclePoint = new TuvPoint();
-        mCirclePoint.x = mThumbPoint.x + mThumbHeight / 2;
-
-        mRadiusMax = Math.max(mCirclePoint.x - getPaddingLeft(), mCirclePoint.y - getPaddingTop());
-        mRadiusMin = TuvUtils.dip2px(getContext(), 8);
-        mClipPath = new Path();
-        mClipPath.addCircle(mCirclePoint.x, mCirclePoint.y, mRadiusMax, Path.Direction.CW);
-    }
-
-    private void initBitmapInfo() {
         mBitmapPaint = new Paint();
         mBitmapPaint.setAntiAlias(true);
 
@@ -117,6 +101,18 @@ public class ThumbView extends View {
         mShiningPoint.y = getPaddingTop();
         mThumbPoint.x = getPaddingLeft();
         mThumbPoint.y = getPaddingTop() + TuvUtils.dip2px(getContext(), 8);
+
+        mCirclePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        mCirclePaint.setStyle(Paint.Style.STROKE);
+        mCirclePaint.setStrokeWidth(TuvUtils.dip2px(getContext(), 2));
+
+        mCirclePoint = new TuvPoint();
+        mCirclePoint.x = mThumbPoint.x + mThumbHeight / 2;
+
+        mRadiusMax = Math.max(mCirclePoint.x - getPaddingLeft(), mCirclePoint.y - getPaddingTop());
+        mRadiusMin = TuvUtils.dip2px(getContext(), 8);
+        mClipPath = new Path();
+        mClipPath.addCircle(mCirclePoint.x, mCirclePoint.y, mRadiusMax, Path.Direction.CW);
     }
 
     private void resetBitmap() {

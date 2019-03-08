@@ -34,7 +34,8 @@
     <com.tutao.practicedemo.ThumbUpView
         android:id="@+id/thumbUpView"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="130dp"
+        android:gravity="center_vertical"
         android:layout_gravity="center_horizontal"
         android:padding="20dp"
         app:tuv_count="109"/>
