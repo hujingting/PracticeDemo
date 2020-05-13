@@ -1,4 +1,4 @@
-package com.tutao.practicedemo;
+package com.tutao.practicedemo.countview;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -10,6 +10,8 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+
+import com.tutao.practicedemo.R;
 
 /**
  * Created by jingting on 2018/3/30.

@@ -1,10 +1,12 @@
-package com.tutao.practicedemo;
+package com.tutao.practicedemo.countview;
 
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+
+import com.tutao.practicedemo.R;
 
 /**
  * Created by jingting on 2018/3/28.

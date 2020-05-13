@@ -1,4 +1,4 @@
-package com.tutao.practicedemo;
+package com.tutao.practicedemo.countview;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -18,6 +18,8 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.OvershootInterpolator;
+
+import com.tutao.practicedemo.R;
 
 /**
  * Created by jingting on 2018/3/29.
