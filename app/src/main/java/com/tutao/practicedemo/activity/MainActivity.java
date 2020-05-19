@@ -1,7 +1,6 @@
-package com.tutao.practicedemo.countview;
+package com.tutao.practicedemo.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.CycleInterpolator;
@@ -10,9 +9,12 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.tutao.common.BaseActivity;
 import com.tutao.practicedemo.R;
+import com.tutao.practicedemo.countview.ThumbUpView;
+import com.tutao.practicedemo.countview.ThumbView;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends BaseActivity implements View.OnClickListener{
 
     private int type = 0;
     private EditText edNum;
