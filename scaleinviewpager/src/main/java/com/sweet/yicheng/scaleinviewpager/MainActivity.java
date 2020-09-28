@@ -9,14 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.sweet.yicheng.scaleinviewpager.transformer.ScaleInTransformer;
-import com.tutao.common.utils.CircleImageView;
 import com.tutao.common.utils.ImageUtils;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * @author jingting
